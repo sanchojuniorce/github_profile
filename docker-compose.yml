@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  app:
+    container_name: github_profile
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3007:3007"  # Altere para a porta que seu app utiliza
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@db:5432/github_profile
+      RAILS_ENV: '${RAILS_ENV}'
+    depends_on:
+      - db
+    env_file: .env  
+
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: github_profile
+    volumes:
+      - .docker/db_data:/var/lib/postgresql/data
