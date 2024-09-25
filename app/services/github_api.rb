@@ -5,7 +5,6 @@ class GitHubAPI
   base_uri ENV["BASE_URL"]
 
   def initialize
-    binding.pry
     @options = {
       query: {
         client_id: ENV["CLIENT_ID"],
