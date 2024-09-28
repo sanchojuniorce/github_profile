@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   #get 'users/:username', to: 'users#index', as: 'user'
   #get 'users/new', to: 'users#new', as: 'new'
   #post 'users/create', to: 'users#create', as: 'create'
-  root "users#create"
+  root "users#new"
   # Defines the root path route ("/")
   # root "posts#index"
 end

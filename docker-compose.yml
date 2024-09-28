@@ -1,6 +1,26 @@
 version: '3.9'
 
 services:
+  db:
+    image: postgres:latest
+    container_name: github_profile_db
+    ports:
+      - 5437:5437
+    expose:
+      - "5437"
+    environment:
+      PGPASSWORD: "${DB_PASSWORD}"
+      POSTGRES_USER: "${DB_USER}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      POSTGRES_DB: "${DB_NAME}"
+      POSTGRES_HOST_AUTH_METHOD: trust
+    command: -p 5437
+    volumes:
+      - ./.docker/pgsql-data:/var/lib/postgresql/data
+      - ./.docker/shared_db:/home
+      - ./docker-script/init.sql:/docker-entrypoint-initdb.d/init.sql
+    env_file: .env  
+
   app:
     container_name: github_profile
     build:
@@ -9,19 +29,10 @@ services:
     ports:
       - "3007:3007"  # Altere para a porta que seu app utiliza
     environment:
-      DATABASE_URL: postgres://postgres:postgres@db:5432/github_profile
+      DATABASE_URL: postgres://${DB_USER}:${DB_PASSWORD}@db:${DB_PORT}/${DB_NAME}
       RAILS_ENV: '${RAILS_ENV}'
     depends_on:
       - db
-    env_file: .env  
-
-  db:
-    image: postgres:latest
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: github_profile
     volumes:
-      - .docker/db_data:/var/lib/postgresql/data
+      - .:/app
+    env_file: .env      
