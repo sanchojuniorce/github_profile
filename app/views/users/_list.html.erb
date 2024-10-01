@@ -1,20 +1,22 @@
 <table class="table table-striped table-hover">
     <thead>
         <tr>
+            <th>Perfil</th>
             <th>Nome</th>
-            <th>Usuário</th>
-            <th>Organização</th>
-            <th>Localização</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
          <% @users.each do |user| %>
             <tr>
+                <td>
+                    <img src="<%= user.profile_image_url %>" alt="<%= user.name %> Avatar" class="rounded-circle" width="40">
+                </td>    
                 <td><%= user.name %></td>
-                <td><%= user.github_username %></td>
-                <td><%= user.organization %></td>
-                <td><%= user.location %></td> 
+                <td>
+                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                </td>
             </tr>
         <% end %>    
     </tbody>
