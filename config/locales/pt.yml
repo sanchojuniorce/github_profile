@@ -1,0 +1,6 @@
+pt:
+  activerecord:
+    attributes:
+      user:
+        name: "Nome"
+        address: "Endereço web Github"

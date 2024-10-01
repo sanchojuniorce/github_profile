@@ -20,6 +20,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      scraper = GithubScraper.new(@user.name)
+      github_data = scraper.scrape
+      @user.update(github_data)
       redirect_to users_path, notice: 'Usuário criado com sucesso.'
     else
       render :new
@@ -28,6 +31,10 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :address_web) if params[:user].present?
+    params.require(:user).permit(:name, :address_web, 
+      :github_username, :followers, :following,
+      :stars, :contributions, :profile_image_url,
+      :organization, :location
+    ) if params[:user].present?
   end
 end
