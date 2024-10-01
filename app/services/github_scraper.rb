@@ -55,7 +55,7 @@ class GithubScraper
   end
 
   def extract_location(doc)
-    doc.at_css('.p-label')&.text.strip
+    doc.at_css('.p-label')&.text.strip rescue ''
   end
 
   def parse_number(text)
