@@ -22,6 +22,8 @@ services:
     env_file: .env  
 
   app:
+    tty: true
+    stdin_open: true
     container_name: github_profile
     build:
       context: .

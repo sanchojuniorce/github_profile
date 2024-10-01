@@ -31,7 +31,7 @@ gem 'httparty'
 gem 'pry'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'bootstrap', '~> 5.1.3'
-
+gem 'ransack'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
