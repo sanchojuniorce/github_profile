@@ -1,28 +1,3 @@
 <h1 class="mb-4">Criar Novo Usuário</h1>
 
-<%= form_with(model: @user, local: true, class: "needs-validation", novalidate: true) do |form| %>
-  <% if @user.errors.any? %>
-    <div class="alert alert-danger">
-      <h2><%= pluralize(@user.errors.count, "erro") %> proibiu este usuário de ser salvo:</h2>
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="mb-3">
-    <%= form.label :name, class: "form-label" %>
-    <%= form.text_field :name, class: "form-control", required: true %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.label :address, class: "form-label" %>
-    <%= form.text_field :address, class: "form-control", required: true %>
-  </div>
-
-  <div>
-    <%= form.submit 'Criar Usuário', class: "btn btn-primary" %>
-  </div>
-<% end %>
+<%= render 'form' %>

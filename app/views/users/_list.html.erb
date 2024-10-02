@@ -14,8 +14,16 @@
                 </td>    
                 <td><%= user.name %></td>
                 <td>
-                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                    <%= link_to(profile_user_path(user), target: "_blank") do %>
+                        <i class="fa fa-user fa-2x"></i>
+                    <% end %>
+                    <%= link_to(edit_user_path(user)) do %>
+                        <i class="fa fa-edit fa-2x"></i>
+                    <% end %>
+                    <%#= link_to 'Delete', user_path(user), method: :delete %>
+                    <%#= link_to user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'user' do %>
+                        <!--<i class="fa fa-trash fa-2x"></i>!-->
+                    <%# end %>
                 </td>
             </tr>
         <% end %>    

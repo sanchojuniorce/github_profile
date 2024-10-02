@@ -1,0 +1,28 @@
+<%= form_with(model: @user, local: true, class: "needs-validation", novalidate: true) do |form| %>
+  <% if @user.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(@user.errors.count, "erro") %> proibiu este usuário de ser salvo:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :name, class: "form-label" %>
+      <%= form.text_field :name, class: "form-control", placeholder: "Nome" %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= form.label :github_username, class: "form-label" %>
+      <%= form.text_field :github_username, class: "form-control", placeholder: "Endereço web Github" %>
+    </div>
+  </div>
+
+  <div>
+    <%= form.submit 'Salvar', class: "btn btn-primary" %>
+    <%= link_to "Voltar", users_path, class: "btn btn-default" %>
+  </div>
+<% end %>
