@@ -4,3 +4,13 @@ pt:
       user:
         name: "Nome"
         address: "Endereço web Github"
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "não pode estar em branco"
+            github_username:
+              blank: "não pode estar em branco"
+      messages:
+        blank: "não pode estar em branco"

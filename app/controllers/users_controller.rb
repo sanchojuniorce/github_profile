@@ -11,9 +11,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def profile end
+  def profile; end
 
-  def edit end
+  def edit; end
 
   def create
     @user = User.new(user_params)
@@ -26,7 +26,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    binding.pry
     if @user.update(user_params)
       github_scraper
       redirect_to users_path, notice: 'Usuário atualizado com sucesso.'
