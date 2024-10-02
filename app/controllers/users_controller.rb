@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  require_relative '../services/github_api'  # Adjust path as necessary
+  require_relative '../services/github_scraper'  # Adjust path as necessary
 
   def index
     @q = User.ransack(params[:q])
