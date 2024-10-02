@@ -1,24 +1,8 @@
-# README
+# Montando ambiente local via ASDF
+[Ambiente Local via ASDF](README_ENVIROMENT_LOCAL.md)
+# Usando Docker Compose
+docker compose up
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Root Page
+![ROOT_PAGE](public/images/index.png)
+![PROFILE_PAGE](public/images/profile.png)
