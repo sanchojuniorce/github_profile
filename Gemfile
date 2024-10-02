@@ -74,6 +74,7 @@ group :test do
   gem 'rspec', '~> 3.4'
   gem 'rspec-rails'
   gem 'rails-controller-testing'
+  gem 'webmock'
 end
 
 gem "jsbundling-rails", "~> 1.3"
